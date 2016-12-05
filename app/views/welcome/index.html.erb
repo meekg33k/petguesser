@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="jumbotron">
+        <h1>Hello there...</h1>
+        <br />
+        <br />
+        <br />
+        <p align="center">Got some few minutes to play the pet guessing game? It's gonna be fun.</p>
+        <p align="center">Simply click the button below to start</p>
+        <br />
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-sm-5 col-md-5 col-lg-5">
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                <span>
+                  <button class="btn btn-success btn-lg"  data-toggle="modal" data-target="#myFormModal" role="button">
+                      <i class="fa fa-hourglass-start" aria-hidden="true"></i> &nbsp; Start Game</button>
+                  </span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="modal fade" id="myFormModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                               <span aria-hidden="true">&times;</span>
+                               <span class="sr-only">Close</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            Just a few details needed
+                        </h4>
+                    </div>
+                    <%= form_for :person, url: person_index_path do |f| %>
+                        <div class="modal-body">
+                          <div class="form-group">
+                            <p>
+                                <%= f.label :name %><br>
+                                <%= text_field(:person, :name, required: true, class: "form-control") %>
+                                <small id="usernameInfo" class="form-text text-muted">A name, a nickname maybe or your pet's name :)</small>
+                            </p>
+                          </div>
+                          <br />
+                          <div class="form-group">
+                            <p>
+                                <%= f.label :height %><br>
+                                <%= number_field(:person, :height, in: 3.0..8.0, step: 0.1, required: true, class: "form-control") %>
+                                <small id="heightInfo" class="form-text text-muted">We need your height (in ft)</small>
+                            </p>
+                          </div>
+                          <br />
+                          <div class="form-group">
+                            <p>
+                                <%= f.label :weight %><br>
+                                <%= number_field(:person, :weight, in: 70.0..300.0, step: 0.1, required: true, class: "form-control") %>
+                                <small id="weightInfo" class="form-text text-muted">Errr... and your weight (lb) too?</small>
+                            </p>
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"> Close </button>
+                            <button type="submit" class="btn btn-primary"> Find Your Pet </button>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+      </div>
+</div>

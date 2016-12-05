@@ -1,9 +1,25 @@
 Rails.application.routes.draw do
+  # Root of the project
+  root 'welcome#index'
+  
+  # Welcome page
+  get 'welcome' => 'welcome#index'
+  get 'welcome/index'
+  
+  # Returning page
+  get 'welcome/returning'
+  
+  # Person Resource
+  resources :person
+  
+  # Game Routes
+  get 'game/:id/results' => 'game#results'
+  post 'game/:id/results' => 'game#update', as: :update
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
