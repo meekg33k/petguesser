@@ -1,20 +1,19 @@
 class PersonController < ApplicationController
-  def new
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
-  
+
   def create
-    @person = Person.find_by(name: params[:person][:name], height: [:person][:height], weight: [:person][:weight])
+    @person = Person.find_by(name: params[:person][:name], height: params[:person][:height], weight: params[:person][:weight])
     
+    id = 1
     if (@person != nil)
+      if (@person.id != nil)
         id = @person.id
+      end
     else
-      @person = Person.new(params[:person])
+      @person = Person.new(person_params)
       @person.save
-      id = @person.id
+      if (@person.id != nil)
+        id = @person.id
+      end
     end
     
     redirect_to controller: 'game', action: 'results', id: id

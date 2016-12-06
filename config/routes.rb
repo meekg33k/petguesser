@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :person
   
   # Game Routes
-  get 'game/:id/results' => 'game#results'
+  get 'game/:id/results' => 'game#results', as: :results
   post 'game/:id/results' => 'game#update', as: :update
 
   # The priority is based upon order of creation: first created -> highest priority.

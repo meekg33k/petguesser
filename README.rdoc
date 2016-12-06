@@ -33,17 +33,20 @@
 * Controllers: 
 PetGuesser has three controllers that map to the different routes in the application. The routes can be viewed in the <tt>config</tt> folder in the root directory of the project.
 
-  <tt>WelcomeController</tt> handles routes for the index page of the application (to start the game) and the returning page (after a game has ended)
-  <tt>PersonController</tt> manages routes for creating and editing the Person resource - which corresponds to the user who plays the game.
-  <tt>GameController</tt> manages the game routes and also handles the guessing logic of the application in one of its actions.  
+  WelcomeController handles routes for the index page of the application (to start the game) and the returning page (after a game has ended)
+  PersonController manages routes for creating and editing the Person resource - which corresponds to the user who plays the game.
+  GameController manages the game routes and also handles the guessing logic of the application in one of its actions.  
 
 
 
 === Application Logic
 
- The application aims to guess a user's preffered pet based on his height and weight. The application computes the user's BMI as a proxy for determining the user's preferred pet.
- It next queries all entries in the database in a bid to find all entries (and their pet preferences) with the same BMI as the current user. It returns the pet with the highest number of entries as the user's preferred pet.
- On the Results page, it gives the user the option to confirm if the pet guess was correct. Based on the user's feedback, it updates the entry for that user in the database.
+ The application aims to guess a user's preffered pet based on his height and weight. 
+ It does this by computing the user's BMI as a proxy for determining the user's preferred pet.
+ It next queries all entries in the database in a bid to find all entries (and their pet preferences) with the same BMI as the current user. 
+ It returns the pet with the highest number of entries as the user's preferred pet.
+ On the Results page, it gives the user the option to confirm if the pet guess was correct. 
+ Based on the user's feedback, it updates the entry for that user in the database.
  
  
 === Data Collection
@@ -51,7 +54,8 @@ PetGuesser has three controllers that map to the different routes in the applica
 
 * Data Generation
   Random data of 1000 entries was generated using Mockaroo. 
-  To ensure that the randomness between a user's height and weight was controlled, the mathematical equation w(h) = 3.86*12*h - 110.42 was used.
+  To ensure that the randomness between a user's height and weight was controlled, the mathematical equation <tt>w(h) = 3.86*12*h - 110.42</tt> was used.
+  The mathematical equation was gotten from a research study on the relationship between height and weight.
   
 * Data Assumption
   The application assumes that a user's BMI is strongly correlated with his pet preference. 

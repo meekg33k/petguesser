@@ -2,18 +2,18 @@ require 'test_helper'
 
 class PersonTest < ActiveSupport::TestCase
   
-  test "should not save person without name" do
-    person = Person.new
-    assert_not person.save
+  test "should save person without name" do
+    person = Person.new(height:5.7, weight:150)
+    assert person.save
   end
   
   test "should not save person without height" do
-    person = Person.new
+    person = Person.new(name:'TestUser', weight:150)
     assert_not person.save
   end
   
   test "should not save person without weight" do
-    person = Person.new
+    person = Person.new(name:'TestUser', height:4.5)
     assert_not person.save
   end
 

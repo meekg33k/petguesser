@@ -5,4 +5,9 @@ class WelcomeControllerTest < ActionController::TestCase
     get :index
     assert_response :success
   end
+  
+  test "should get returning page" do
+    get :returning
+    assert_response :success
+  end
 end
