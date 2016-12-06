@@ -1,28 +1,39 @@
-== README
+== PetGuesser README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
 
 * Ruby version
-
+  This project runs with version <tt>ruby 2.3.0p0</tt>
+  
 * System dependencies
 
 * Configuration
 
-* Database creation
 
-* Database initialization
+=== Database
 
-* How to run the test suite
+* Database Schema Design
+  The SQLite database has one table `Person` where each column maps to the attributes of the `Person` model in the application
+  
+* Database Model
+  The only model in this application is the `Person` model which has the following attributes:
+    -> name: type - string, required - false
+    -> height: type - float, required - true, minimum - 7.0, maximum - 8.0
+    -> weight: type - float, required - true, minimum - 70.0, maximum - 300.0
+    -> pet: type - string, required - false
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+=== Application
+* Application Design
+  
+
+* Controllers
+
+* Data
+
+=== Data Collection
+* Data Generation
+  The 
+
+
+
