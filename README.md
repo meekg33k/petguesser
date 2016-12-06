@@ -7,7 +7,7 @@ A Rails project for ChalkSchools to randomly guess a person's preffered pet
 
 ## Documentation
 
-The documentation for the project covering from design to implementation is stored in the `README.rdoc` file at the root folder of the project.
+The documentation for the project covering from design to implementation is stored in the [`README.rdoc`](https://github.com/uduakeren/petguesser/blob/master/README.rdoc) file at the root folder of the project.
 
 
 
