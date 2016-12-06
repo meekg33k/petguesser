@@ -4,17 +4,18 @@
 * Ruby version
   This project runs with version <tt>ruby 2.3.0p0</tt>
   
-* System dependencies
+* Gem Dependencies
+    ->bootstrap-sass
+    ->simple-form
 
-* Configuration
 
 
 === Database
 
-* Database Schema Design
-  The SQLite database has one table `Person` where each column maps to the attributes of the `Person` model in the application
+* Schema Design:
+  The SQLite database has one table <tt>Person</tt> where each column maps to the attributes of the Person model in the application
   
-* Database Model
+* Model: 
   The only model in this application is the `Person` model which has the following attributes:
     -> name: type - string, required - false
     -> height: type - float, required - true, minimum - 7.0, maximum - 8.0
@@ -23,17 +24,37 @@
 
 
 
-=== Application
-* Application Design
+=== Application Design
+
+* Front-End:
+  The front-end of the application is a simple form that displays in a Bootstrap modal for the user to enter height and weight as input into the application so that it guesses the user's preferred pet.
   
 
-* Controllers
+* Controllers: 
+PetGuesser has three controllers that map to the different routes in the application. The routes can be viewed in the <tt>config</tt> folder in the root directory of the project.
 
-* Data
+  <tt>WelcomeController</tt> handles routes for the index page of the application (to start the game) and the returning page (after a game has ended)
+  <tt>PersonController</tt> manages routes for creating and editing the Person resource - which corresponds to the user who plays the game.
+  <tt>GameController</tt> manages the game routes and also handles the guessing logic of the application in one of its actions.  
 
+
+
+=== Application Logic
+
+ The application aims to guess a user's preffered pet based on his height and weight. The application computes the user's BMI as a proxy for determining the user's preferred pet.
+ It next queries all entries in the database in a bid to find all entries (and their pet preferences) with the same BMI as the current user. It returns the pet with the highest number of entries as the user's preferred pet.
+ On the Results page, it gives the user the option to confirm if the pet guess was correct. Based on the user's feedback, it updates the entry for that user in the database.
+ 
+ 
 === Data Collection
+
+
 * Data Generation
-  The 
+  Random data of 1000 entries was generated using Mockaroo. 
+  To ensure that the randomness between a user's height and weight was controlled, the mathematical equation w(h) = 3.86*12*h - 110.42 was used.
+  
+* Data Assumption
+  The application assumes that a user's BMI is strongly correlated with his pet preference. 
 
 
 
